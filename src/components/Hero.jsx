@@ -1,51 +1,33 @@
 import { motion } from "framer-motion";
 
-import { styles } from "../styles";
+import { profile } from "../constants";
 import { ComputersCanvas } from "./canvas";
 
-const Hero = () => {
-  return (
-    <section className={`relative w-full h-screen mx-auto`}>
-      <div
-        className={`absolute inset-0 top-[120px]  max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
-      >
-        <div className='flex flex-col justify-center items-center mt-5'>
-          <div className='w-5 h-5 rounded-full bg-[#915EFF]' />
-          <div className='w-1 sm:h-80 h-40 violet-gradient' />
-        </div>
-
-        <div>
-          <h1 className={`${styles.heroHeadText} text-white`}>
-            Hi, I'm <span className='text-[#915EFF]'>Adrian</span>
-          </h1>
-          <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            I develop 3D visuals, user <br className='sm:block hidden' />
-            interfaces and web applications
-          </p>
-        </div>
+const Hero = () => (
+  <main id="home" className="hero-section page-width">
+    <motion.div className="hero-copy" initial={{ opacity: 0, x: -35 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
+      <motion.p className="eyebrow" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.15 }}><span className="status-dot" /> Available for full-stack opportunities</motion.p>
+      <h1>Hi, I&apos;m <span>{profile.name}</span>.<br /><strong>Full Stack Developer.</strong></h1>
+      <p className="hero-lede">I build dependable web applications from interface to infrastructure, with React, Node.js, MongoDB, and modern cloud services.</p>
+      <div className="hero-actions">
+        <a className="button button-primary" href="#projects">View projects <span aria-hidden="true">↓</span></a>
+        <span className="button button-quiet resume-placeholder">Download resume <small>{profile.resume}</small></span>
       </div>
-
-      <ComputersCanvas />
-
-      <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center'>
-        <a href='#about'>
-          <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'>
-            <motion.div
-              animate={{
-                y: [0, 24, 0],
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                repeatType: "loop",
-              }}
-              className='w-3 h-3 rounded-full bg-secondary mb-1'
-            />
-          </div>
-        </a>
+      <div className="social-links" aria-label="Social links">
+        <a href={profile.github} target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+        <a href={`mailto:${profile.email}`}>Email <span aria-hidden="true">↗</span></a>
       </div>
-    </section>
-  );
-};
+    </motion.div>
+    <motion.div className="hero-aside" aria-label="Developer focus" initial={{ opacity: 0, x: 35 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}>
+      <div className="hero-3d-scene"><ComputersCanvas /></div>
+      <motion.div className="code-window" animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}>
+        <div className="window-bar"><span /><span /><span /><small>surya-stack.js</small></div>
+        <pre><code><i>const</i> developer = {'{'}{`\n`}  name: <b>&quot;Surya N&quot;</b>,{`\n`}  role: <b>&quot;full-stack&quot;</b>,{`\n`}  frontend: <b>&quot;React&quot;</b>,{`\n`}  backend: <b>&quot;Node.js&quot;</b>,{`\n`}  ships: <b>true</b>{`\n`}{'}'}</code></pre>
+      </motion.div>
+      <div className="hero-note"><span>01</span><p>Thoughtful products<br />with a strong backend.</p></div>
+    </motion.div>
+  </main>
+);
 
 export default Hero;

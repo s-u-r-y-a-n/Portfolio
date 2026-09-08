@@ -1,66 +1,14 @@
-import React from "react";
-import Tilt from "react-tilt";
-import { motion } from "framer-motion";
+import Reveal from "./Reveal";
 
-import { styles } from "../styles";
-import { services } from "../constants";
-import { SectionWrapper } from "../hoc";
-import { fadeIn, textVariant } from "../utils/motion";
-
-const ServiceCard = ({ index, title, icon }) => (
-  <Tilt className='xs:w-[250px] w-full'>
-    <motion.div
-      variants={fadeIn("right", "spring", index * 0.5, 0.75)}
-      className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
-    >
-      <div
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
-        className='bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col'
-      >
-        <img
-          src={icon}
-          alt='web-development'
-          className='w-16 h-16 object-contain'
-        />
-
-        <h3 className='text-white text-[20px] font-bold text-center'>
-          {title}
-        </h3>
-      </div>
-    </motion.div>
-  </Tilt>
+const About = () => (
+  <section id="about" className="section page-width section-rule">
+    <Reveal><div className="section-heading"><p className="eyebrow">01 / About</p><h2>Building products with<br /><em>clarity and intent.</em></h2></div></Reveal>
+    <Reveal delay={0.12}><div className="about-grid">
+      <div className="about-lead"><p>I&apos;m Surya, a Full Stack Developer with approximately 1.5 years of professional experience building modern web applications.</p></div>
+      <div className="about-copy"><p>My work sits at the intersection of a thoughtful React frontend and a dependable Node.js backend. I enjoy turning requirements into clear user flows, maintainable APIs, useful data models, and secure application experiences.</p><p>I&apos;m especially interested in authentication, cloud services, scalable architecture, and the debugging discipline that keeps products reliable after they ship.</p></div>
+    </div></Reveal>
+    <div className="about-signals"><div><strong>1.5 yrs</strong><span>professional experience</span></div><div><strong>React + Node</strong><span>primary development focus</span></div><div><strong>End to end</strong><span>frontend to cloud thinking</span></div></div>
+  </section>
 );
 
-const About = () => {
-  return (
-    <>
-      <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview.</h2>
-      </motion.div>
-
-      <motion.p
-        variants={fadeIn("", "", 0.1, 1)}
-        className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
-      >
-        I'm a skilled software developer with experience in TypeScript and
-        JavaScript, and expertise in frameworks like React, Node.js, and
-        Three.js. I'm a quick learner and collaborate closely with clients to
-        create efficient, scalable, and user-friendly solutions that solve
-        real-world problems. Let's work together to bring your ideas to life!
-      </motion.p>
-
-      <div className='mt-20 flex flex-wrap gap-10'>
-        {services.map((service, index) => (
-          <ServiceCard key={service.title} index={index} {...service} />
-        ))}
-      </div>
-    </>
-  );
-};
-
-export default SectionWrapper(About, "about");
+export default About;
