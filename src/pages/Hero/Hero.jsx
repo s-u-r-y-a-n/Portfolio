@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 import { profile } from "../../constants";
-import { ComputersCanvas } from "../canvas";
+import { ComputersCanvas } from "../../components/canvas";
 import "./Hero.scss";
 
 const Hero = () => (

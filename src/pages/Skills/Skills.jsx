@@ -1,10 +1,10 @@
 import { skillGroups } from "../../constants";
 import { featuredTech } from "../../constants";
-import { BallCanvas } from "../canvas";
-import Reveal from "../Reveal";
-import "./Tech.scss";
+import { BallCanvas } from "../../components/canvas";
+import Reveal from "../../components/Reveal";
+import "./Skills.scss";
 
-const Tech = () => (
+const Skills = () => (
   <section id="skills" className="section page-width section-rule">
     <div className="section-heading heading-row">
       <div>
@@ -56,4 +56,4 @@ const Tech = () => (
   </section>
 );
 
-export default Tech;
+export default Skills;

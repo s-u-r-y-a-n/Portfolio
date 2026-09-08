@@ -7,7 +7,7 @@ const steps = [
   ["06", "Deploy", "Environment configuration → deployment → monitoring"],
 ];
 
-import Reveal from "../Reveal";
+import Reveal from "../../components/Reveal";
 import "./Process.scss";
 
 const Process = () => (

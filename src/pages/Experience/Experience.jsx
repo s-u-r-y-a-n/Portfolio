@@ -1,5 +1,5 @@
 import { experience } from "../../constants";
-import Reveal from "../Reveal";
+import Reveal from "../../components/Reveal";
 import "./Experience.scss";
 
 const Experience = () => (

@@ -6,7 +6,7 @@ const layers = [
   ["05", "Data & cloud", "MongoDB · AWS · serverless"],
 ];
 
-import Reveal from "../Reveal";
+import Reveal from "../../components/Reveal";
 import "./Architecture.scss";
 
 const Architecture = () => (

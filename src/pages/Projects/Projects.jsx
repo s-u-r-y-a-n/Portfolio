@@ -1,6 +1,6 @@
 import { projects } from "../../constants";
 import { motion } from "framer-motion";
-import "./Works.scss";
+import "./Projects.scss";
 
 const isPlaceholder = (value) => value.startsWith("[");
 
@@ -64,7 +64,7 @@ const ProjectCard = ({ project, featured, index }) => (
   </motion.article>
 );
 
-const Works = () => (
+const Projects = () => (
   <section id="projects" className="section page-width section-rule">
     <div className="section-heading heading-row">
       <div>
@@ -93,4 +93,4 @@ const Works = () => (
   </section>
 );
 
-export default Works;
+export default Projects;

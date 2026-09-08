@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 
+import { Navbar } from "./components";
 import {
   About,
   Architecture,
@@ -8,11 +9,10 @@ import {
   Contact,
   Experience,
   Hero,
-  Navbar,
   Process,
-  Tech,
-  Works,
-} from "./components";
+  Projects,
+  Skills,
+} from "./pages";
 
 const getInitialTheme = () => {
   const savedTheme = window.localStorage.getItem("surya-theme");
@@ -41,8 +41,8 @@ const App = () => {
           <Hero />
         </div>
         <About />
-        <Tech />
-        <Works />
+        <Skills />
+        <Projects />
         <Architecture />
         <Experience />
         <Process />
