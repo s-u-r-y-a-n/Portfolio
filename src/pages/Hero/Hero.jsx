@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { profile } from "../../constants";
 import { ComputersCanvas } from "../../components/canvas";
 import "./Hero.scss";
+import "./HeroCopy.scss";
+import "./HeroAside.scss";
 
 const Hero = () => (
   <main id="home" className="hero-section page-width">
@@ -79,14 +81,7 @@ const Hero = () => (
           </code>
         </pre>
       </motion.div>
-      <div className="hero-note">
-        <span>01</span>
-        <p>
-          Thoughtful products
-          <br />
-          with a strong backend.
-        </p>
-      </div>
+
     </motion.div>
   </main>
 );
