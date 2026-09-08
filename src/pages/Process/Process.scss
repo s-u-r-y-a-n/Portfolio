@@ -1,66 +1,291 @@
-@use "../../styles/mixins" as *;
+// ==========================================
+// PROCESS SECTION & GRID
+// ==========================================
+
+#process {
+  .heading-aside {
+    max-width: 390px;
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+}
 
 .process-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 20px;
+  margin-top: 14px;
 }
+
+// Crystalline Step Cards
 .process-step {
-  @include glass-card;
-  min-height: 165px;
-  padding: 21px;
+  position: relative;
+  overflow: hidden;
+  min-height: 185px;
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  backdrop-filter: blur(20px) saturate(155%);
+  -webkit-backdrop-filter: blur(20px) saturate(155%);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 0 16px 2px rgba(255, 255, 255, 0.12);
+  transition:
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+
+  // Specular top highlight bevel
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.9),
+      transparent
+    );
+    pointer-events: none;
+  }
+
+  // Left refractive edge highlight
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.8),
+      transparent 60%,
+      rgba(255, 255, 255, 0.2)
+    );
+    pointer-events: none;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.28);
+    border-color: rgba(255, 255, 255, 0.68);
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, 0.07),
+      inset 0 1px 0 rgba(255, 255, 255, 0.95),
+      inset 0 0 20px 4px rgba(255, 255, 255, 0.2);
+
+    .step-number {
+      color: var(--cyan);
+    }
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+
+    .step-number {
+      font:
+        600 12px/1 "DM Mono",
+        monospace;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .step-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      opacity: 0.6;
+    }
+  }
+
+  h3 {
+    margin: 0 0 10px;
+    font-size: 19px;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .step-detail {
+    margin: 0;
+    color: var(--muted);
+    font:
+      400 12px/1.65 "DM Mono",
+      monospace;
+    letter-spacing: 0.01em;
+
+    .step-arrow {
+      color: var(--cyan);
+      font-weight: 700;
+      padding: 0 2px;
+    }
+  }
 }
-.process-step > span {
-  color: var(--cyan);
-  font:
-    500 11px "DM Mono",
-    monospace;
-}
-.process-step h3 {
-  margin: 32px 0 12px;
-  font-size: 20px;
-  letter-spacing: -0.04em;
-}
-.process-step p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.6;
-}
-.ai-note {
+
+// ==========================================
+// AI-ASSISTED WORKFLOW BANNER
+// ==========================================
+
+.ai-banner {
+  position: relative;
+  overflow: hidden;
+  margin-top: 36px;
+  padding: 24px 28px;
   display: grid;
-  grid-template-columns: 0.7fr 1.3fr;
-  gap: 40px;
-  padding: 25px 0 0;
+  grid-template-columns: 240px 1fr;
+  align-items: center;
+  gap: 36px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.8),
+      transparent
+    );
+  }
+
+  .ai-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font:
+      600 11px/1 "DM Mono",
+      monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cyan);
+
+    .ai-indicator {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 0 3px rgba(42, 169, 160, 0.2);
+    }
+  }
+
+  p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+    letter-spacing: -0.01em;
+  }
 }
-.ai-note span {
-  color: var(--cyan);
-  font:
-    11px "DM Mono",
-    monospace;
-  text-transform: uppercase;
+
+// ==========================================
+// DARK THEME OVERRIDES
+// ==========================================
+
+[data-theme="dark"] {
+  .process-step {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+      0 12px 36px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+
+    &::before {
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+      );
+    }
+
+    &::after {
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.25),
+        transparent 60%,
+        rgba(255, 255, 255, 0.05)
+      );
+    }
+
+    h3 {
+      color: #e5ede8;
+    }
+
+    .step-detail {
+      color: #9cb0a6;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(255, 255, 255, 0.24);
+    }
+  }
+
+  .ai-banner {
+    background: rgba(255, 255, 255, 0.035);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow:
+      0 10px 30px rgba(0, 0, 0, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+    p {
+      color: #9cb0a6;
+    }
+  }
 }
-.ai-note p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.7;
-}
-@media (max-width: 760px) {
+
+// ==========================================
+// RESPONSIVE ADJUSTMENTS
+// ==========================================
+
+@media (max-width: 980px) {
   .process-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .ai-banner {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .process-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
   .process-step {
-    min-height: 180px;
-    padding: 16px;
-  }
-  .process-step:hover {
-    transform: none;
-  }
-  .ai-note {
-    display: block;
-  }
-  .ai-note p {
-    margin-top: 17px;
+    padding: 20px 18px;
+    min-height: auto;
   }
 }

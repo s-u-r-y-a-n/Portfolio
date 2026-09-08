@@ -1,17 +1,41 @@
-const steps = [
-  ["01", "Understand", "Requirements → user flows → technical requirements"],
-  ["02", "Design", "Application structure → database → API architecture"],
-  ["03", "Develop", "Frontend → backend → integrations"],
-  ["04", "Secure", "Authentication → authorization → validation"],
-  ["05", "Test", "API testing → debugging → edge cases"],
-  ["06", "Deploy", "Environment configuration → deployment → monitoring"],
-];
-
 import Reveal from "../../components/Reveal";
 import "./Process.scss";
 
+const steps = [
+  {
+    number: "01",
+    title: "Understand",
+    items: ["Requirements", "User flows", "Technical specs"],
+  },
+  {
+    number: "02",
+    title: "Design",
+    items: ["Application architecture", "Database schema", "API contracts"],
+  },
+  {
+    number: "03",
+    title: "Develop",
+    items: ["Modular UI", "Robust backend", "Third-party APIs"],
+  },
+  {
+    number: "04",
+    title: "Secure",
+    items: ["Authentication", "Role permissions", "Input validation"],
+  },
+  {
+    number: "05",
+    title: "Test",
+    items: ["Endpoint testing", "Error boundaries", "Edge case coverage"],
+  },
+  {
+    number: "06",
+    title: "Deploy",
+    items: ["CI/CD pipelines", "Cloud hosting", "Uptime & logging"],
+  },
+];
+
 const Process = () => (
-  <section className="section page-width section-rule">
+  <section id="process" className="section page-width section-rule">
     <Reveal>
       <div className="section-heading heading-row">
         <div>
@@ -28,26 +52,53 @@ const Process = () => (
         </p>
       </div>
     </Reveal>
+
+    {/* 6-Step Process Cards */}
     <div className="process-grid">
-      {steps.map(([number, title, detail], index) => (
-        <Reveal key={number} delay={index * 0.06}>
-          <div className="process-step">
-            <span>{number}</span>
-            <h3>{title}</h3>
-            <p>{detail}</p>
-          </div>
+      {steps.map((step, index) => (
+        <Reveal key={step.number} delay={index * 0.06}>
+          <article className="process-step">
+            <div className="step-header">
+              <span className="step-number">{step.number}</span>
+              <span className="step-dot" aria-hidden="true" />
+            </div>
+
+            <h3>{step.title}</h3>
+
+            <p className="step-detail">
+              {step.items.map((item, itemIdx) => (
+                <span key={item} className="detail-item">
+                  {item}
+                  {itemIdx < step.items.length - 1 && (
+                    <span className="step-arrow" aria-hidden="true">
+                      {" "}
+                      →{" "}
+                    </span>
+                  )}
+                </span>
+              ))}
+            </p>
+          </article>
         </Reveal>
       ))}
     </div>
+
+    {/* AI Workflow Note */}
     <Reveal delay={0.15}>
-      <div className="ai-note">
-        <span>AI-assisted development</span>
+      <aside
+        className="ai-banner"
+        aria-label="AI-assisted development philosophy"
+      >
+        <div className="ai-badge">
+          <span className="ai-indicator" />
+          <span>AI-Assisted Workflow</span>
+        </div>
         <p>
-          I use AI tools for research, debugging, learning, code exploration,
-          documentation, and productivity, while validating and understanding
-          suggestions before integrating them.
+          I leverage AI tools for deep research, debugging edge cases, code
+          exploration, and documentation, while strictly reviewing, testing, and
+          understanding every solution before integrating it into production.
         </p>
-      </div>
+      </aside>
     </Reveal>
   </section>
 );

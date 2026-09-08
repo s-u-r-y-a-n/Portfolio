@@ -1,6 +1,4 @@
 import { skillGroups } from "../../constants";
-import { featuredTech } from "../../constants";
-import { BallCanvas } from "../../components/canvas";
 import Reveal from "../../components/Reveal";
 import "./Skills.scss";
 
@@ -20,8 +18,10 @@ const Skills = () => (
         interfaces to APIs, data, and cloud services.
       </p>
     </div>
+
+    {/* 3-Box Primary Skills Grid */}
     <div className="skill-grid">
-      {skillGroups.map((group, groupIndex) => (
+      {skillGroups.slice(0, 3).map((group, groupIndex) => (
         <Reveal key={group.title} delay={groupIndex * 0.08}>
           <article className={`skill-group accent-${group.accent}`}>
             <div className="skill-group-title">
@@ -32,24 +32,15 @@ const Skills = () => (
             </div>
             <div className="skill-list">
               {group.skills.map((skill, index) => (
-                <span className={index < 3 ? "skill-primary" : ""} key={skill}>
+                <span
+                  className={`skill-pill ${index < 3 ? "skill-primary" : ""}`}
+                  key={skill}
+                >
                   {skill}
                 </span>
               ))}
             </div>
           </article>
-        </Reveal>
-      ))}
-    </div>
-    <div className="featured-tech" aria-label="Interactive core technologies">
-      {featuredTech.map((technology, index) => (
-        <Reveal key={technology.name} delay={index * 0.1}>
-          <div className="featured-tech-item">
-            <div className="featured-tech-canvas">
-              <BallCanvas icon={technology.icon} />
-            </div>
-            <span>{technology.name}</span>
-          </div>
         </Reveal>
       ))}
     </div>

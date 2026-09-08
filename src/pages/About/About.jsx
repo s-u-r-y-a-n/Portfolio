@@ -13,43 +13,49 @@ const About = () => (
         </h2>
       </div>
     </Reveal>
+
     <Reveal delay={0.12}>
       <div className="about-grid">
         <div className="about-lead">
           <p>
-            I&apos;m Surya, a Full Stack Developer with approximately 1.5 years
-            of professional experience building modern web applications.
+            I&apos;m Surya, a{" "}
+            <span className="highlight-text">Full Stack Developer</span> with
+            approximately 1.5 years of professional experience building modern,
+            dependable web applications.
           </p>
         </div>
         <div className="about-copy">
           <p>
             My work sits at the intersection of a thoughtful React frontend and
-            a dependable Node.js backend. I enjoy turning requirements into
-            clear user flows, maintainable APIs, useful data models, and secure
-            application experiences.
+            a resilient Node.js backend. I focus on translating business
+            requirements into clean user flows, maintainable APIs, optimized
+            database schemas, and secure application architectures.
           </p>
           <p>
-            I&apos;m especially interested in authentication, cloud services,
-            scalable architecture, and the debugging discipline that keeps
-            products reliable after they ship.
+            I&apos;m particularly drawn to cloud deployment, distributed
+            workflows, and the deep debugging discipline required to keep
+            systems fast, predictable, and robust in production.
           </p>
         </div>
       </div>
     </Reveal>
-    <div className="about-signals">
-      <div>
-        <strong>1.5 yrs</strong>
-        <span>professional experience</span>
+
+    <Reveal delay={0.2}>
+      <div className="about-signals" role="list" aria-label="Key highlights">
+        <div className="signal-card" role="listitem">
+          <strong>1.5+ yrs</strong>
+          <span>Professional Experience</span>
+        </div>
+        <div className="signal-card" role="listitem">
+          <strong>React + Node</strong>
+          <span>Primary Stack & Cloud</span>
+        </div>
+        <div className="signal-card" role="listitem">
+          <strong>End-to-End</strong>
+          <span>Architecture & Delivery</span>
+        </div>
       </div>
-      <div>
-        <strong>React + Node</strong>
-        <span>primary development focus</span>
-      </div>
-      <div>
-        <strong>End to end</strong>
-        <span>frontend to cloud thinking</span>
-      </div>
-    </div>
+    </Reveal>
   </section>
 );
 

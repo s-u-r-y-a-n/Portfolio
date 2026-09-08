@@ -2,16 +2,25 @@ import { projects } from "../../constants";
 import { motion } from "framer-motion";
 import "./Projects.scss";
 
-const isPlaceholder = (value) => value.startsWith("[");
+const isPlaceholder = (value) => !value || value.startsWith("[");
 
-const ProjectLink = ({ href, children }) =>
+const ProjectLink = ({ href, children, isSecondary }) =>
   isPlaceholder(href) ? (
-    <span className="project-link project-link-disabled">
-      {children} <small>{href}</small>
+    <span className="project-action-btn action-disabled">
+      <span>{children}</span>
+      <small className="placeholder-tag">In progress</small>
     </span>
   ) : (
-    <a className="project-link" href={href} target="_blank" rel="noreferrer">
-      {children} <span aria-hidden="true">↗</span>
+    <a
+      className={`project-action-btn ${isSecondary ? "action-secondary" : "action-primary"}`}
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+    >
+      <span>{children}</span>
+      <span className="action-arrow" aria-hidden="true">
+        ↗
+      </span>
     </a>
   );
 
@@ -25,40 +34,59 @@ const ProjectCard = ({ project, featured, index }) => (
   >
     <div className="project-visual">
       {project.image ? (
-        <img
-          src={project.image}
-          alt={`${project.name} project preview`}
-          loading="lazy"
-        />
+        <div className="image-wrapper">
+          <img
+            src={project.image}
+            alt={`${project.name} preview`}
+            loading="lazy"
+          />
+        </div>
       ) : (
         <div className="case-study-visual">
-          <span>CONFIDENTIAL</span>
+          <span className="case-badge">Confidential</span>
           <strong>
-            Engineering
+            System Architecture
             <br />
-            case study
+            Case Study
           </strong>
         </div>
       )}
-      <span className="project-number">{project.number}</span>
+      <span className="project-number">
+        {project.number || `0${index + 1}`}
+      </span>
     </div>
+
     <div className="project-content">
       <p className="project-label">{project.label}</p>
       <h3>{project.name}</h3>
       <p className="project-description">{project.description}</p>
-      <ul>
-        {project.features.map((feature) => (
-          <li key={feature}>{feature}</li>
-        ))}
-      </ul>
-      <div className="tag-list">
+
+      {project.features && project.features.length > 0 && (
+        <ul className="feature-list" aria-label="Key highlights">
+          {project.features.map((feature) => (
+            <li key={feature}>
+              <span className="feature-bullet" aria-hidden="true">
+                ↳
+              </span>
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      <div className="tag-list" aria-label="Technologies used">
         {project.tags.map((tag) => (
-          <span key={tag}>{tag}</span>
+          <span key={tag} className="tech-tag">
+            {tag}
+          </span>
         ))}
       </div>
+
       <div className="project-links">
-        <ProjectLink href={project.source_code_link}>GitHub</ProjectLink>
-        <ProjectLink href={project.live_link}>Live demo</ProjectLink>
+        <ProjectLink href={project.live_link}>Live Demo</ProjectLink>
+        <ProjectLink href={project.source_code_link} isSecondary>
+          GitHub
+        </ProjectLink>
       </div>
     </div>
   </motion.article>
@@ -80,6 +108,7 @@ const Projects = () => (
         thinking behind each build.
       </p>
     </div>
+
     <div className="project-grid">
       {projects.map((project, index) => (
         <ProjectCard
