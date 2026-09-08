@@ -1,0 +1,48 @@
+$ink: #17221f;
+$muted: #64736f;
+$paper: #f4f5f0;
+$white: #fbfcf8;
+$line: #d6ddd7;
+$cyan: #2aa9a0;
+$lime: #c4e46b;
+$amber: #e9b95b;
+$coral: #ed836e;
+
+:root {
+  --ink: #{$ink};
+  --muted: #{$muted};
+  --paper: #{$paper};
+  --white: #{$white};
+  --line: #{$line};
+  --cyan: #{$cyan};
+  --lime: #{$lime};
+  --amber: #{$amber};
+  --coral: #{$coral};
+  --glass-surface: rgba(255, 255, 255, 0.42);
+  --glass-strong: rgba(255, 255, 255, 0.64);
+  --glass-border: rgba(255, 255, 255, 0.56);
+  --glass-highlight: rgba(255, 255, 255, 0.66);
+  --glass-shadow:
+    0 20px 50px rgba(23, 34, 31, 0.1), 0 8px 20px rgba(23, 34, 31, 0.06);
+  --glass-blur: 24px;
+  --glass-radius: 20px;
+}
+
+[data-theme="dark"] {
+  --ink: #edf5ef;
+  --muted: #9aac9f;
+  --paper: #111a17;
+  --white: #18231f;
+  --line: #30403a;
+  --cyan: #5dd1c5;
+  --lime: #c9e875;
+  --amber: #f0c56d;
+  --coral: #f29480;
+  --glass-surface: rgba(24, 35, 31, 0.54);
+  --glass-strong: rgba(24, 35, 31, 0.72);
+  --glass-border: rgba(237, 245, 239, 0.18);
+  --glass-highlight: rgba(237, 245, 239, 0.28);
+  --glass-shadow:
+    0 24px 56px rgba(0, 0, 0, 0.3), 0 8px 22px rgba(0, 0, 0, 0.18);
+  color-scheme: dark;
+}

@@ -1,0 +1,41 @@
+.compact-section {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+.cert-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 100px;
+}
+.cert-list {
+  border-top: 1px solid var(--line);
+}
+.cert-item {
+  display: grid;
+  grid-template-columns: 40px 1fr 20px;
+  align-items: center;
+  min-height: 63px;
+  border-bottom: 1px solid var(--line);
+}
+.cert-item span {
+  color: var(--cyan);
+  font:
+    10px "DM Mono",
+    monospace;
+}
+.cert-item p {
+  margin: 0;
+  font-size: 13px;
+}
+.cert-item b {
+  color: var(--cyan);
+  font-weight: 400;
+}
+@media (max-width: 760px) {
+  .cert-grid {
+    display: block;
+  }
+  .cert-list {
+    margin-top: 45px;
+  }
+}

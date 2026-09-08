@@ -1,15 +1,14 @@
-import Hero from "./Hero";
-import Navbar from "./Navbar";
-import About from "./About";
-import Tech from "./Tech";
-import Experience from "./Experience";
-import Works from "./Works";
-import Contact from "./Contact";
-import Architecture from "./Architecture";
-import Process from "./Process";
-import Certifications from "./Certifications";
+import Hero from "./Hero/Hero";
+import Navbar from "./Navbar/Navbar";
+import About from "./About/About";
+import Tech from "./Tech/Tech";
+import Experience from "./Experience/Experience";
+import Works from "./Works/Works";
+import Contact from "./Contact/Contact";
+import Architecture from "./Architecture/Architecture";
+import Process from "./Process/Process";
+import Certifications from "./Certifications/Certifications";
 import Reveal from "./Reveal";
-
 
 export {
   Hero,
@@ -22,5 +21,5 @@ export {
   Architecture,
   Process,
   Certifications,
-  Reveal
+  Reveal,
 };

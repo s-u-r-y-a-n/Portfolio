@@ -1,0 +1,199 @@
+.hero-shell {
+  min-height: 760px;
+  position: relative;
+  background:
+    radial-gradient(
+      circle at 80% 28%,
+      rgba(196, 228, 107, 0.22),
+      transparent 30%
+    ),
+    linear-gradient(120deg, #e9efea 0%, var(--paper) 55%, #e4eee7 100%);
+}
+.hero-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.25;
+  background-image:
+    linear-gradient(rgba(23, 34, 31, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 34, 31, 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(to bottom, black, transparent 80%);
+}
+.hero-section {
+  min-height: 678px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 80px;
+  position: relative;
+  z-index: 1;
+  padding-top: 35px;
+}
+.status-dot {
+  width: 7px;
+  height: 7px;
+  display: inline-block;
+  border-radius: 50%;
+  margin-right: 8px;
+  background: var(--cyan);
+  box-shadow: 0 0 0 4px rgba(42, 169, 160, 0.14);
+  animation: statusPulse 2.2s ease-in-out infinite;
+}
+.hero-lede {
+  max-width: 540px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.75;
+}
+.social-links {
+  display: flex;
+  gap: 23px;
+  margin-top: 48px;
+  font:
+    500 11px "DM Mono",
+    monospace;
+  text-transform: uppercase;
+}
+.social-links a {
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 5px;
+}
+.social-links a:hover {
+  color: var(--ink);
+  border-color: var(--cyan);
+}
+.hero-aside {
+  position: relative;
+}
+.code-window {
+  position: relative;
+  z-index: 1;
+  background: #1e2a27;
+  color: #dce8da;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--glass-radius);
+  box-shadow:
+    var(--glass-shadow),
+    22px 24px 0 rgba(42, 169, 160, 0.13);
+  transform: rotate(2deg);
+}
+.window-bar {
+  height: 42px;
+  padding: 0 17px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.window-bar span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--coral);
+}
+.window-bar span:nth-child(2) {
+  background: var(--amber);
+}
+.window-bar span:nth-child(3) {
+  background: var(--lime);
+}
+.window-bar small {
+  margin-left: auto;
+  color: #879690;
+  font:
+    10px "DM Mono",
+    monospace;
+}
+.code-window pre {
+  margin: 0;
+  padding: 31px 35px 35px;
+  font:
+    14px/2 "DM Mono",
+    monospace;
+}
+.code-window i {
+  color: var(--coral);
+  font-style: normal;
+}
+.code-window b {
+  color: var(--lime);
+  font-weight: 400;
+}
+.hero-note {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin: 41px 0 0 47px;
+}
+.hero-note span {
+  color: var(--cyan);
+  font:
+    500 11px "DM Mono",
+    monospace;
+}
+.hero-note p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  font-weight: 700;
+}
+@keyframes statusPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 4px rgba(42, 169, 160, 0.14);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(42, 169, 160, 0.03);
+  }
+}
+[data-theme="dark"] .hero-shell {
+  background:
+    radial-gradient(
+      circle at 80% 28%,
+      rgba(201, 232, 117, 0.12),
+      transparent 30%
+    ),
+    linear-gradient(120deg, #192520 0%, var(--paper) 55%, #14201c 100%);
+}
+[data-theme="dark"] .hero-shell::after {
+  background-image:
+    linear-gradient(rgba(237, 245, 239, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(237, 245, 239, 0.06) 1px, transparent 1px);
+}
+[data-theme="dark"] .code-window {
+  background: #0a100e;
+  color: #dce8da;
+  box-shadow:
+    var(--glass-shadow),
+    22px 24px 0 rgba(93, 209, 197, 0.1);
+}
+@media (max-width: 760px) {
+  .hero-shell {
+    min-height: auto;
+  }
+  .hero-section {
+    display: block;
+    min-height: auto;
+    padding-top: 90px;
+    padding-bottom: 95px;
+  }
+  .hero-copy h1 {
+    font-size: clamp(43px, 13vw, 70px);
+  }
+  .hero-lede {
+    font-size: 15px;
+  }
+  .hero-aside {
+    margin: 80px 10px 0;
+  }
+  .code-window pre {
+    padding: 24px 19px;
+    font-size: 11px;
+  }
+  .hero-note {
+    margin-left: 20px;
+  }
+}

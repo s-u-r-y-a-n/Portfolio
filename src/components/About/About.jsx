@@ -1,4 +1,5 @@
-import Reveal from "./Reveal";
+import Reveal from "../Reveal";
+import "./About.scss";
 
 const About = () => (
   <section id="about" className="section page-width section-rule">
