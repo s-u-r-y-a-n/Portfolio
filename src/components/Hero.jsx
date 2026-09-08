@@ -20,7 +20,7 @@ const Hero = () => (
       </div>
     </motion.div>
     <motion.div className="hero-aside" aria-label="Developer focus" initial={{ opacity: 0, x: 35 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}>
-      <div className="hero-3d-scene"><ComputersCanvas /></div>
+      {/* <div className="hero-3d-scene"><ComputersCanvas /></div> */}
       <motion.div className="code-window" animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}>
         <div className="window-bar"><span /><span /><span /><small>surya-stack.js</small></div>
         <pre><code><i>const</i> developer = {'{'}{`\n`}  name: <b>&quot;Surya N&quot;</b>,{`\n`}  role: <b>&quot;full-stack&quot;</b>,{`\n`}  frontend: <b>&quot;React&quot;</b>,{`\n`}  backend: <b>&quot;Node.js&quot;</b>,{`\n`}  ships: <b>true</b>{`\n`}{'}'}</code></pre>
