@@ -37,7 +37,7 @@ const Architecture = () => (
     <div className="page-width architecture-grid">
       <Reveal direction="left">
         <div className="section-heading">
-          <p className="eyebrow">04 / Backend thinking</p>
+          <p className="eyebrow architecture-kicker">04 / Backend thinking</p>
           <h2>
             More than a<br />
             <em>pretty frontend.</em>
@@ -58,13 +58,13 @@ const Architecture = () => (
         >
           {layers.map((layer, index) => (
             <div className="layer-wrapper" key={layer.title}>
-              <div className="architecture-layer" role="listitem">
+              <div className="architecture-layer liquid-surface" role="listitem">
                 <span className="layer-number">{layer.number}</span>
                 <div className="layer-info">
                   <strong>{layer.title}</strong>
                   <small>{layer.detail}</small>
                 </div>
-                <span className="layer-status-pill">Active</span>
+                <span className="layer-status-pill liquid-surface">Active</span>
               </div>
               {index < layers.length - 1 && (
                 <div className="layer-connector" aria-hidden="true">

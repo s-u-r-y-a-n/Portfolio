@@ -310,3 +310,179 @@
     height: 18px;
   }
 }
+
+// Fully transparent liquid surfaces: neutral rim and specular highlight only.
+.architecture-section,
+[data-theme="dark"] .architecture-section {
+  background: transparent;
+}
+
+#architecture .architecture-kicker {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  min-height: 32px;
+  margin-bottom: 19px;
+  padding: 0 12px;
+  border: 1px solid rgba(35, 57, 51, 0.22);
+  border-radius: 999px;
+  color: #187b6e;
+  background: transparent;
+  box-shadow:
+    0 8px 18px rgba(30, 120, 102, 0.07),
+    inset 0 1px 1px rgba(255, 255, 255, 0.72),
+    inset 0 -1px 2px rgba(28, 149, 124, 0.05);
+}
+
+#architecture .section-heading h2 {
+  max-width: 760px;
+  font-size: clamp(42px, 5.2vw, 68px);
+  line-height: 1.04;
+  letter-spacing: -0.065em;
+}
+
+#architecture .section-intro {
+  max-width: 440px;
+  font-size: clamp(15px, 1.15vw, 17px);
+  line-height: 1.72;
+}
+
+#architecture .architecture-layer.liquid-surface {
+  isolation: isolate;
+  overflow: hidden;
+  border-color: rgba(35, 57, 51, 0.22);
+  background: transparent;
+  box-shadow:
+    0 12px 24px rgba(23, 105, 89, 0.07),
+    0 4px 9px rgba(23, 56, 49, 0.04),
+    inset 0 1px 1px rgba(255, 255, 255, 0.72),
+    inset 0 -1px 2px rgba(20, 130, 108, 0.05);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+
+  &::before {
+    z-index: -1;
+    inset: 1px;
+    width: auto;
+    height: auto;
+    border-radius: inherit;
+    background: linear-gradient(108deg, rgba(255, 255, 255, 0.18), transparent 16% 84%, rgba(255, 255, 255, 0.02));
+  }
+
+  &::after {
+    display: none;
+  }
+
+  &:hover {
+    border-color: rgba(35, 57, 51, 0.35);
+    background: transparent;
+    box-shadow:
+      0 16px 30px rgba(23, 105, 89, 0.11),
+      0 6px 12px rgba(23, 56, 49, 0.05),
+      inset 0 1px 1px rgba(255, 255, 255, 0.86),
+      inset 0 -1px 2px rgba(20, 130, 108, 0.08);
+
+    .layer-number {
+      color: var(--ink);
+    }
+  }
+
+  .layer-number {
+    font-size: clamp(11px, 0.88vw, 13px);
+  }
+
+  .layer-info {
+    strong {
+      font-size: clamp(17px, 1.38vw, 20px);
+      line-height: 1.2;
+    }
+
+    small {
+      font-size: clamp(11px, 0.88vw, 12px);
+      line-height: 1.45;
+    }
+  }
+}
+
+#architecture .layer-status-pill.liquid-surface {
+  border-color: rgba(35, 57, 51, 0.22);
+  color: var(--muted);
+  background: transparent;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.6),
+    inset 0 -1px 1px rgba(20, 130, 108, 0.04);
+}
+
+#architecture .layer-connector {
+  .connector-line {
+    background: rgba(35, 57, 51, 0.18);
+  }
+
+  .connector-arrow {
+    color: var(--muted);
+  }
+}
+
+[data-theme="dark"] {
+  #architecture .architecture-kicker {
+    border-color: rgba(235, 255, 249, 0.34);
+    color: #b2f0df;
+    background: transparent;
+    box-shadow:
+      0 8px 18px rgba(0, 0, 0, 0.23),
+      inset 0 1px 1px rgba(234, 255, 249, 0.22),
+      inset 0 -1px 2px rgba(0, 0, 0, 0.13);
+  }
+
+  #architecture .architecture-layer.liquid-surface {
+    border-color: rgba(235, 255, 249, 0.28);
+    background: transparent;
+    box-shadow:
+      0 14px 28px rgba(0, 0, 0, 0.27),
+      0 4px 9px rgba(0, 0, 0, 0.16),
+      inset 0 1px 1px rgba(240, 255, 250, 0.22),
+      inset 0 -1px 2px rgba(0, 0, 0, 0.16);
+
+    &::before {
+      background: linear-gradient(108deg, rgba(255, 255, 255, 0.12), transparent 16% 84%, rgba(255, 255, 255, 0.02));
+    }
+
+    &:hover {
+      border-color: rgba(235, 255, 249, 0.44);
+      background: transparent;
+    }
+
+    .layer-info {
+      strong {
+        color: #edf8f1;
+      }
+
+      small {
+        color: #c7dcd3;
+      }
+    }
+  }
+
+  #architecture .layer-status-pill.liquid-surface {
+    border-color: rgba(235, 255, 249, 0.24);
+    color: #c7dcd3;
+    background: transparent;
+    box-shadow:
+      inset 0 1px 1px rgba(240, 255, 250, 0.15),
+      inset 0 -1px 1px rgba(0, 0, 0, 0.12);
+  }
+
+  #architecture .layer-connector .connector-line {
+    background: rgba(235, 255, 249, 0.2);
+  }
+}
+
+@media (max-width: 760px) {
+  #architecture .section-heading h2 {
+    font-size: clamp(38px, 11vw, 52px);
+  }
+
+  #architecture .section-intro {
+    font-size: 15px;
+  }
+}

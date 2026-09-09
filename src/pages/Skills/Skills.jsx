@@ -3,10 +3,10 @@ import Reveal from "../../components/Reveal";
 import "./Skills.scss";
 
 const Skills = () => (
-  <section id="skills" className="section page-width section-rule">
+  <section id="skills" className="skills-section section page-width section-rule">
     <div className="section-heading heading-row">
       <div>
-        <p className="eyebrow">02 / Skills</p>
+        <p className="eyebrow skills-kicker">02 / Skills</p>
         <h2>
           The stack behind
           <br />
@@ -23,7 +23,7 @@ const Skills = () => (
     <div className="skill-grid">
       {skillGroups.slice(0, 3).map((group, groupIndex) => (
         <Reveal key={group.title} delay={groupIndex * 0.08}>
-          <article className={`skill-group accent-${group.accent}`}>
+          <article className="skill-group liquid-surface">
             <div className="skill-group-title">
               <span className="skill-index">
                 {String(groupIndex + 1).padStart(2, "0")}
@@ -33,7 +33,7 @@ const Skills = () => (
             <div className="skill-list">
               {group.skills.map((skill, index) => (
                 <span
-                  className={`skill-pill ${index < 3 ? "skill-primary" : ""}`}
+                  className={`skill-pill liquid-surface ${index < 3 ? "skill-primary" : ""}`}
                   key={skill}
                 >
                   {skill}

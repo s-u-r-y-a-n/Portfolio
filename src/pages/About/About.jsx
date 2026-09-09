@@ -2,10 +2,10 @@ import Reveal from "../../components/Reveal";
 import "./About.scss";
 
 const About = () => (
-  <section id="about" className="section page-width section-rule">
+  <section id="about" className="about-section section page-width section-rule">
     <Reveal>
       <div className="section-heading">
-        <p className="eyebrow">01 / About</p>
+        <p className="eyebrow about-kicker">01 / About</p>
         <h2>
           Building products with
           <br />
@@ -42,15 +42,15 @@ const About = () => (
 
     <Reveal delay={0.2}>
       <div className="about-signals" role="list" aria-label="Key highlights">
-        <div className="signal-card" role="listitem">
+        <div className="signal-card liquid-surface" role="listitem">
           <strong>1.5+ yrs</strong>
           <span>Professional Experience</span>
         </div>
-        <div className="signal-card" role="listitem">
+        <div className="signal-card liquid-surface" role="listitem">
           <strong>React + Node</strong>
           <span>Primary Stack & Cloud</span>
         </div>
-        <div className="signal-card" role="listitem">
+        <div className="signal-card liquid-surface" role="listitem">
           <strong>End-to-End</strong>
           <span>Architecture & Delivery</span>
         </div>

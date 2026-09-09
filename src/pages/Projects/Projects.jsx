@@ -6,13 +6,13 @@ const isPlaceholder = (value) => !value || value.startsWith("[");
 
 const ProjectLink = ({ href, children, isSecondary }) =>
   isPlaceholder(href) ? (
-    <span className="project-action-btn action-disabled">
+    <span className="project-action-btn liquid-surface action-disabled">
       <span>{children}</span>
       <small className="placeholder-tag">In progress</small>
     </span>
   ) : (
     <a
-      className={`project-action-btn ${isSecondary ? "action-secondary" : "action-primary"}`}
+      className={`project-action-btn liquid-surface ${isSecondary ? "action-secondary" : "action-primary"}`}
       href={href}
       target="_blank"
       rel="noreferrer"
@@ -26,7 +26,7 @@ const ProjectLink = ({ href, children, isSecondary }) =>
 
 const ProjectCard = ({ project, featured, index }) => (
   <motion.article
-    className={`project-card ${featured ? "project-featured" : ""}`}
+    className={`project-card liquid-surface ${featured ? "project-featured" : ""}`}
     initial={{ opacity: 0, y: 35 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, amount: 0.12 }}
@@ -42,7 +42,7 @@ const ProjectCard = ({ project, featured, index }) => (
           />
         </div>
       ) : (
-        <div className="case-study-visual">
+        <div className="case-study-visual liquid-surface">
           <span className="case-badge">Confidential</span>
           <strong>
             System Architecture
@@ -51,7 +51,7 @@ const ProjectCard = ({ project, featured, index }) => (
           </strong>
         </div>
       )}
-      <span className="project-number">
+      <span className="project-number liquid-surface">
         {project.number || `0${index + 1}`}
       </span>
     </div>
@@ -76,7 +76,7 @@ const ProjectCard = ({ project, featured, index }) => (
 
       <div className="tag-list" aria-label="Technologies used">
         {project.tags.map((tag) => (
-          <span key={tag} className="tech-tag">
+          <span key={tag} className="tech-tag liquid-surface">
             {tag}
           </span>
         ))}
@@ -93,12 +93,12 @@ const ProjectCard = ({ project, featured, index }) => (
 );
 
 const Projects = () => (
-  <section id="projects" className="section page-width section-rule">
+  <section id="projects" className="projects-section section page-width section-rule">
     <div className="section-heading heading-row">
       <div>
-        <p className="eyebrow">03 / Selected work</p>
+        <p className="eyebrow projects-kicker">03 / Selected work</p>
         <h2>
-          Projects that show
+          Ok
           <br />
           <em>the full picture.</em>
         </h2>
